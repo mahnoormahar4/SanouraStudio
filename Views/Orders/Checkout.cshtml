@@ -1,0 +1,13 @@
+@model Order
+@{ ViewData["Title"] = "Checkout"; }
+<h2>Delivery Details</h2>
+<p>Payment is cash on delivery.</p>
+<form asp-action="Checkout" method="post" class="form">
+  <div asp-validation-summary="All" class="error"></div>
+  <label>Full name <input asp-for="CustomerName" /></label>
+  <label>Phone <input asp-for="Phone" /></label>
+  <label>Address <input asp-for="Address" /></label>
+  <label>City <input asp-for="City" /></label>
+  <label>Notes (optional) <textarea asp-for="Notes"></textarea></label>
+  <button class="btn">Place order</button>
+</form>

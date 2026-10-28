@@ -1,0 +1,23 @@
+@model List<Order>
+@{ ViewData["Title"] = "Admin"; }
+<h2>Orders <a class="link" asp-action="Logout">Logout</a></h2>
+<table>
+  <tr><th>ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th></tr>
+  @foreach (var o in Model)
+  {
+    <tr>
+      <td>@o.OrderCode<br /><small>@o.CreatedAt.ToString("dd MMM HH:mm")</small></td>
+      <td>@o.CustomerName<br />@o.Phone<br />@o.Address, @o.City</td>
+      <td>@foreach (var i in o.Items) { <div>@i.Quantity x @i.Name <small>@i.Details</small></div> }</td>
+      <td>Rs. @o.Total</td>
+      <td>
+        <form asp-action="UpdateStatus" method="post" class="inline">
+          <input type="hidden" name="id" value="@o.Id" />
+          <select name="status" asp-items="Html.GetEnumSelectList<OrderStatus>()"></select>
+          <button class="btn small">Save</button>
+        </form>
+        <small>Now: @o.Status</small>
+      </td>
+    </tr>
+  }
+</table>

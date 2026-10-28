@@ -1,0 +1,22 @@
+@model List<Product>
+@{ ViewData["Title"] = "Shop"; }
+<h2>Shop</h2>
+<p class="filters">
+  <a asp-action="Index">All</a>
+  @foreach (var c in (List<string>)ViewBag.Categories) { <a asp-action="Index" asp-route-category="@c">@c</a> }
+</p>
+<div class="grid">
+@foreach (var p in Model)
+{
+  <div class="card">
+    <h3>@p.Name</h3>
+    <p>@p.Description</p>
+    <p class="price">Rs. @p.Price</p>
+    @if (p.InStock)
+    {
+      <form asp-action="AddToCart" asp-route-id="@p.Id" method="post"><button class="btn">Add to cart</button></form>
+    }
+    else { <em>Out of stock</em> }
+  </div>
+}
+</div>

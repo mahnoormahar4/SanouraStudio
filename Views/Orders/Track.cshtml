@@ -1,0 +1,21 @@
+@model Order?
+@{ ViewData["Title"] = "Track Order"; }
+<h2>Track your order</h2>
+<form method="get" class="inline">
+  <input name="code" placeholder="Order ID e.g. SAN-12345" value="@Context.Request.Query["code"]" />
+  <button class="btn">Track</button>
+</form>
+@if (ViewBag.NotFound == true) { <p class="error">No order found with that ID.</p> }
+@if (Model != null)
+{
+  <h3>Order @Model.OrderCode</h3>
+  <p>Save your Order ID to check status later.</p>
+  <ol class="steps">
+  @foreach (var s in Enum.GetValues<OrderStatus>())
+  {
+    <li class="@(s <= Model.Status ? "done" : "")">@s</li>
+  }
+  </ol>
+  <ul>@foreach (var i in Model.Items) { <li>@i.Quantity x @i.Name @(i.Details != "" ? "(" + i.Details + ")" : "") - Rs. @(i.Price * i.Quantity)</li> }</ul>
+  <p class="price">Total: Rs. @Model.Total (cash on delivery)</p>
+}

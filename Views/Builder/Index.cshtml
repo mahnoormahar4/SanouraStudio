@@ -1,0 +1,23 @@
+@{ ViewData["Title"] = "Bracelet Builder"; }
+<h2>Custom Bracelet Builder</h2>
+@if (TempData["Error"] != null) { <p class="error">@TempData["Error"]</p> }
+<div class="builder">
+  <form asp-action="Add" method="post" id="builderForm">
+    <h4>1. Pick up to 4 bead colours</h4>
+    <div class="colors">
+    @foreach (var c in BuilderController.Colors)
+    {
+      <label><input type="checkbox" name="colors" value="@c" /> @c</label>
+    }
+    </div>
+    <h4>2. Choose a charm (+Rs. @BuilderController.CharmPrice)</h4>
+    <select name="charm" id="charm">
+      @foreach (var c in BuilderController.Charms) { <option>@c</option> }
+    </select>
+    <h4>3. Add an initial (+Rs. @BuilderController.InitialPrice, optional)</h4>
+    <input name="initial" id="initial" maxlength="1" />
+    <p class="price">Price: Rs. <span id="price" data-base="@BuilderController.BasePrice" data-charm="@BuilderController.CharmPrice" data-initial="@BuilderController.InitialPrice">@BuilderController.BasePrice</span></p>
+    <button class="btn">Add to cart</button>
+  </form>
+  <div class="preview"><h4>Preview</h4><div id="beads"></div><p id="previewInfo"></p></div>
+</div>

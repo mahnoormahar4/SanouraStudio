@@ -1,0 +1,19 @@
+@model List<CartItem>
+@{ ViewData["Title"] = "Cart"; }
+<h2>Your Cart</h2>
+@if (Model.Count == 0) { <p>Your cart is empty.</p> }
+else
+{
+  <table>
+    <tr><th>Item</th><th>Details</th><th>Qty</th><th>Price</th><th></th></tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+      <tr>
+        <td>@Model[i].Name</td><td>@Model[i].Details</td><td>@Model[i].Quantity</td><td>Rs. @(Model[i].Price * Model[i].Quantity)</td>
+        <td><form asp-action="Remove" method="post"><input type="hidden" name="index" value="@i" /><button class="link">Remove</button></form></td>
+      </tr>
+    }
+  </table>
+  <p class="price">Total: Rs. @Model.Sum(c => c.Price * c.Quantity) (+ delivery, cash on delivery)</p>
+  <a class="btn" asp-controller="Orders" asp-action="Checkout">Checkout</a>
+}

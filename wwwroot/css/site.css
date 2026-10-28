@@ -1,0 +1,24 @@
+:root { --pink:#f7c5d5; --lav:#d9c8f0; --ink:#4a3b52; }
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; color: var(--ink); margin: 0; background: #fff9fc; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: var(--pink); }
+header a { color: var(--ink); text-decoration: none; margin-left: 1rem; }
+.logo { font-weight: bold; font-size: 1.3rem; margin-left: 0; }
+main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+footer { text-align: center; padding: 2rem; font-size: .9rem; }
+.hero { text-align: center; padding: 3rem 1rem; background: var(--lav); border-radius: 16px; }
+.btn { display: inline-block; background: var(--ink); color: #fff; border: 0; padding: .6rem 1.2rem; border-radius: 999px; text-decoration: none; cursor: pointer; margin: .3rem; }
+.btn.alt { background: #fff; color: var(--ink); } .btn.small { padding: .3rem .8rem; }
+.link { background: none; border: 0; color: #a0397a; cursor: pointer; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.card { background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 2px 8px #0001; }
+.price { font-weight: bold; } .error { color: #b00020; }
+table { width: 100%; border-collapse: collapse; background: #fff; } th, td { padding: .6rem; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+.form label { display: block; margin-bottom: .8rem; } .form input, .form textarea { display: block; width: 100%; padding: .5rem; }
+.inline { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+.filters a { margin-right: 1rem; }
+.builder { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; } @media (max-width: 700px) { .builder { grid-template-columns: 1fr; } }
+.colors label { margin-right: 1rem; display: inline-block; }
+#beads { display: flex; flex-wrap: wrap; gap: 6px; padding: 1rem; background: #fff; border-radius: 12px; min-height: 60px; }
+.bead { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #0002; display: flex; align-items: center; justify-content: center; font-size: .8rem; }
+.steps { display: flex; gap: .5rem; list-style: none; padding: 0; flex-wrap: wrap; } .steps li { padding: .4rem .9rem; border-radius: 999px; background: #eee; } .steps li.done { background: var(--pink); font-weight: bold; }

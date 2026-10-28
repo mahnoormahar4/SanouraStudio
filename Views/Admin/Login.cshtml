@@ -1,0 +1,4 @@
+@{ ViewData["Title"] = "Admin Login"; }
+<h2>Admin Login</h2>
+@if (ViewBag.Error != null) { <p class="error">@ViewBag.Error</p> }
+<form method="post" class="inline"><input type="password" name="password" placeholder="Password" /><button class="btn">Login</button></form>

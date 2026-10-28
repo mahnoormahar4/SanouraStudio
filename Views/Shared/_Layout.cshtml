@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>@ViewData["Title"] - Sanoura Studio</title>
+  <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<header>
+  <a class="logo" asp-controller="Home" asp-action="Index">Sanoura Studio</a>
+  <nav>
+    <a asp-controller="Products" asp-action="Index">Shop</a>
+    <a asp-controller="Builder" asp-action="Index">Build a Bracelet</a>
+    <a asp-controller="Orders" asp-action="Track">Track Order</a>
+    <a asp-controller="Cart" asp-action="Index">Cart</a>
+  </nav>
+</header>
+<main>@RenderBody()</main>
+<footer>Handmade with love by a 9-year-old dreamer. Cash on delivery across Pakistan.</footer>
+<script src="~/js/builder.js"></script>
+</body>
+</html>
