@@ -4,7 +4,7 @@ Course project (Technology Entrepreneurship, BS CS). A simple e-commerce website
 product catalogue, custom bracelet builder, cart, cash-on-delivery checkout, order tracking and a small admin panel.
 
 ## Tech
-- ASP.NET Core MVC (.NET 8), C#, Razor views
+- ASP.NET Core MVC (.NET 10), C#, Razor views
 - Entity Framework Core + SQLite (file `sanoura.db`, created automatically on first run)
 - Plain HTML/CSS/JS for the front end
 
@@ -20,10 +20,18 @@ Browser -> Controllers -> EF Core (`AppDbContext`) -> SQLite. Cart is kept in th
 | wwwroot | CSS and the builder's live-preview JavaScript |
 
 ## Run
+Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
+
 ```
+git clone https://github.com/mahnoormahar4/SanouraStudio.git
+cd SanouraStudio
 dotnet run
 ```
-Open the URL printed in the terminal. Admin panel: `/Admin` (password in `appsettings.json`, change it).
+Then open the address shown in the terminal (usually `http://localhost:5000`).
+Admin panel: `/Admin` (password is in `appsettings.json`, change it).
 
 ## Order flow
 Received -> Making -> Packed -> Shipped -> Delivered. Customers track with their order ID (e.g. SAN-12345). Payment is cash on delivery only.
+
+## Status
+Initial version. Planned: improved design, product images, admin product management, gift section.
